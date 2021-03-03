@@ -1,6 +1,6 @@
 ﻿/*
 
-A Microsoft Windows memory page delta tool
+A Windows Service to detect if it has been shutdown and hibernate if multiple instances are. 
 
 Released as open source by NCC Group Plc - http://research.nccgroup.com/
 
