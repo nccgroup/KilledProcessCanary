@@ -1,7 +1,7 @@
 Windows Killed Process Canary
 ======================
 
-A Windows Service to performantly produce telemetry on new or modified Windows memory pages that are now executable every 30 seconds.
+A Windows Service to detect if it has been shutdown and hibernate if multiple instances are. 
 
 Released as open source by NCC Group Plc - http://www.nccgroup.com/
 
