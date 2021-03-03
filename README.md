@@ -13,7 +13,7 @@ Released under AGPL see LICENSE for more information
 
 Hypothesis
 -------------
-Certain threat actors stop a number of services / kill a number of processes prior to encrypting with their ransomware. We deploy a number of canary processes which keep track of each other. If these services are stopped (via net stop or similar) and not during a process shutdown we fire a Canary DNS token and hibernate the host. By doing this we will:
+Certain threat actors stop a number of services / kill a number of processes prior to encrypting with their ransomware. We deploy a number of canary processes which keep track of each other. If these services are stopped (via net stop or similar) and not during a host shutdown we fire a Canary DNS token and hibernate the host. By doing this we will:
 * Minimize the impact / likelihood of successful encryption
 * Give the best chance of key recory from RAM
 
