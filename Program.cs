@@ -23,9 +23,33 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.IO.MemoryMappedFiles;
 using System.Runtime.InteropServices;
+using System.Net;
 
 namespace SWOLLENRIVER
 {
+
+    class FireCanary
+    {
+        public static void Fire()
+        {
+            // https://twitter.com/marcoslaviero/status/1266320937416298498?s=21
+            // https://docs.canarytokens.org/guide/dns-token.html#encoding-information-in-your-token
+
+            // REPLACE ME with the base hostname generated for a Canary token here - https://canarytokens.org/generate#
+            string canaryHostname = "REPLACEME.canarytokens.com";
+
+            string thisMachineName = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Environment.MachineName + " hibernating"));
+            thisMachineName = thisMachineName.Replace("=", "");
+
+            Random ran = new Random();
+            int getRanNum = ran.Next(10,99);
+            
+            string Final = thisMachineName + "." + "G" + getRanNum.ToString() + "." + canaryHostname;
+            Dns.GetHostEntry(Final);
+            //Console.WriteLine(Final);
+        }
+
+    }
 
     class Power
     {
@@ -76,6 +100,7 @@ namespace SWOLLENRIVER
             // Number of instances threshold
             if( Cur < 2)
             {
+                FireCanary.Fire();
                 Power.SetSuspendState(true, true, true);
             }
 
@@ -92,6 +117,7 @@ namespace SWOLLENRIVER
             //
             if (System.Environment.UserInteractive)
             {
+                
                 // Run two instances
                 Console.WriteLine("[SWOLLENRIVER] Interactive");
                 IncCount();
