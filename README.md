@@ -11,13 +11,11 @@ https://github.com/nccgroup/KilledProcessCanary
 
 Released under AGPL see LICENSE for more information
 
-Blog
--------------
-https://research.nccgroup.com/2020/10/03/tool-windows-executable-memory-page-delta-reporter/
-
 Hypothesis
 -------------
-Certain threat actors stop a number of services / kill a number of processes prior to encrypting with their ransomware. We deploy a number of canary processes which keep track of each other. If these services are stopped (via net stop or similar) and not during a process shutdown we fire a Canary DNS token and hibernate the host.
+Certain threat actors stop a number of services / kill a number of processes prior to encrypting with their ransomware. We deploy a number of canary processes which keep track of each other. If these services are stopped (via net stop or similar) and not during a process shutdown we fire a Canary DNS token and hibernate the host. By doing this we will:
+* Minimize the impact / likelihood of successful encryption
+* Give the best chance of key recory from RAM
 
 Compatibility
 -------------
@@ -27,8 +25,8 @@ What it does
 -------------
 Simply:
 * Creates a mutex and shares the number of running instances
-* net stop on a service will cause it decrement
-* if that falls below 2 we fire a DNS canary token and hibernate the host
+* net stop on a Canary service will cause it decrement
+* if that falls below 2 we fire a DNS canary token with the hostname and hibernate the host
 
 History
 -------------
@@ -51,4 +49,5 @@ net stop NetBackup BMR MTFTP Service /y
 
 Example DNS Canary Fire
 -------------
+This uses a https://www.canarytokens.org/ DNS token encode the hostname and the fact it is hibernating via the auxiliary informaiton mechanism documented here - https://docs.canarytokens.org/guide/dns-token.html#creating-a-dns-token
 ![DNS Canary Token Firing](https://github.com/nccgroup/KilledProcessCanary/blob/master/Screenshots/DNSCanaryScreenShot.png)
