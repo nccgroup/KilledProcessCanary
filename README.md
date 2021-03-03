@@ -28,6 +28,18 @@ Simply:
 * net stop on a Canary service will cause it decrement
 * if that falls below 2 we fire a DNS canary token with the hostname and hibernate the host
 
+How to Use
+-------------
+* Replace the Canary Token URL
+* Compile SWOLLENRIVER
+* Deploy into typical paths for at least TWO targetted Windows Services
+* Install the Windows Services e.g.
+```
+New-Service -Name "MSSQL" -BinaryPathName "C:\Program Files\Microsoft SQL Server\sqlserver.exe"
+```
+* Start
+* ... profit
+
 History
 -------------
 The genesis of the idea came from a discussion with Harry..
