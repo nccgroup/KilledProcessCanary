@@ -34,3 +34,17 @@ History
 -------------
 The genesis of the idea came from a discussion with Harry..
 
+TTP Examples for Ryuk
+-------------
+* https://www.carbonblack.com/blog/vmware-carbon-black-tau-ryuk-ransomware-technical-analysis/
+* https://www.crowdstrike.com/blog/big-game-hunting-with-ryuk-another-lucrative-targeted-ransomware/
+
+e.g.
+
+```
+net stop avpsus /y
+net stop McAfeeDLPAgentService /y
+net stop mfewc /y
+net stop BMR Boot Service /y
+net stop NetBackup BMR MTFTP Service /y
+```
