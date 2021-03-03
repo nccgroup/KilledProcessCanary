@@ -49,7 +49,10 @@ net stop NetBackup BMR MTFTP Service /y
 
 Example DNS Canary Fire
 -------------
-This uses a https://www.canarytokens.org/ DNS token encode the hostname and the fact it is hibernating via the auxiliary informaiton mechanism documented here - https://docs.canarytokens.org/guide/dns-token.html#creating-a-dns-token.
+This uses a Canary Token (https://www.canarytokens.org/) DNS token encode the hostname and the fact it is hibernating via the auxiliary informaiton mechanism documented here https://docs.canarytokens.org/guide/dns-token.html#creating-a-dns-token.
+
+For this to work you will need to replace the REPLACEME here:
+https://github.com/nccgroup/KilledProcessCanary/blob/master/Program.cs#L241
 
 An example alert seen is as follows:
 ![DNS Canary Token Firing](https://github.com/nccgroup/KilledProcessCanary/blob/master/Screenshots/DNSCanaryScreenShot.png)
