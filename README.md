@@ -48,3 +48,7 @@ net stop mfewc /y
 net stop BMR Boot Service /y
 net stop NetBackup BMR MTFTP Service /y
 ```
+
+Example DNS Canary Fire
+-------------
+![DNS Canary Token Firing](https://github.com/nccgroup/KilledProcessCanary/blob/master/Screenshots/DNSCanaryScreenShot.png)
